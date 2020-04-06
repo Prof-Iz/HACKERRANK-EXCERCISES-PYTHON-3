@@ -38,6 +38,7 @@ from itertools import combinations
 Input = input("Enter Word followed by Max number of Combinations Ex: DOGGY 3:")
 S, k = Input.split(" ") #Takes user input and splits it into list based on delimiter
 k = int(k) # make integer as it is defaluting to string
+S = S.upper() #capitalise input in case user enters simple chars
 newComb=[] #initialise temporary intermediate list
 final=[] #initialise final list
 if k in range(1,len(S)+1): #only does so if k is less than max and is positive int
