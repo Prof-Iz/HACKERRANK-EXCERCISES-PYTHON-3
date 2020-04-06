@@ -39,8 +39,7 @@ Input = input("Enter Word followed by Max number of Combinations Ex: DOGGY 3:")
 S, k = Input.split(" ") #Takes user input and splits it into list based on delimiter
 k = int(k) # make integer as it is defaluting to string
 S = S.upper() #capitalise input in case user enters simple chars
-newComb=[] #initialise temporary intermediate list
-final=[] #initialise final list
+newComb=[] #list to append combinations
 if k in range(1,len(S)+1): #only does so if k is less than max and is positive int
     S = sorted(S) # sorts S
     while k > 0:
@@ -50,12 +49,10 @@ if k in range(1,len(S)+1): #only does so if k is less than max and is positive i
             newComb.append(comb) #append each one to intermediate list
             
         k -= 1 #reduce k to get other combinations
-        # newComb.sort() not required if S is sorted before passing to combinations
-        newComb = reversed(newComb) #reversing new Comb as we want ouput to be lenght wise
-        final += newComb #add reversed list to final
-        newComb=[] #reset intermediate list
+
+newComb = sorted(newComb) #alphabetical sort
+newComb = sorted(newComb,key=len) #length wise sort
 
 
-for i in reversed(final): 
-    #reverse the final list one more time to make it lexographically ordered by length
-    print (i)
+for combination in newComb: 
+    print (combination)
